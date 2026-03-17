@@ -1,0 +1,71 @@
+//Student marks calculating system.
+#include <iostream>
+#include <string>
+using namespace std;
+
+class student{
+public:
+
+     string name;
+     string course;
+     int roll,admno;
+ void student_details(){
+    
+     cin.ignore();
+     cout<<"Enter  name"<<endl;
+     getline(cin,name);  
+     cout<<"Enter course"<<endl;
+     getline(cin,course);
+     cout<<"Enter  roll"<<endl;
+     cin>> roll;
+     cout<<"Enter  admno"<<endl;
+     cin>> admno;
+ }
+ int phy,chem,math,eng,phe;
+void marks (){
+     cout<<"Enter the marks of physics"<<endl;
+     cin>>phy;
+     cout<<"Enter the marks of chemistry"<<endl;
+     cin>>chem;
+     cout<<"Enter the marks of  maths"<<endl;
+     cin>> math;
+     cout<<"Enter the marks of english"<<endl;
+     cin>> eng;
+     cout<<"Enter  the marks of physical education"<<endl;
+     cin>>phe;
+
+}
+void calculatemarks(){
+    float total;
+    float percentage;
+    total=phy+chem+math+eng+phe;
+    percentage=(total/500)*100;
+    cout<<"Total marks obtained :"<<total<<endl;
+    cout<<"Percentage got:"<<percentage<<endl;
+
+    if(percentage>90 && percentage<=100)
+    cout<<"GRADE A,OUT STANDING"<<endl;
+    else if(percentage>80 && percentage<=90)
+    cout<<"GRADE B,EXCELLENT"<<endl;
+    else if(percentage>70&& percentage<=80)
+    cout<<"GRADE C,Very Good"<<endl;
+    else if(percentage>60&& percentage<=70)
+    cout<<"GRADE D,Good"<<endl;
+    else if(percentage>50&& percentage<=60)
+    cout<<"GRADE E,Work HARD"<<endl;
+    else
+    cout<<"Fail,Work Hard to do better"<<endl;}
+};
+int main(){
+cout<<"Welcome to student result calculation system  (maximum 60 students)"<<endl;
+    int n;
+cout<<"Enter the number of students:"<<endl;
+cin>>n;
+    student S[60];
+    for(int i=0;i<n;i++){
+    S[i].student_details();
+    S[i].marks();
+  cout<<"Result for "<<S[i].name<<endl; 
+    S[i].calculatemarks();}
+return 0;
+}
